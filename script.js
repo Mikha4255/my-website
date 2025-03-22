@@ -321,3 +321,50 @@ document.addEventListener('DOMContentLoaded', () => {
     motivationRegisterBtn.style.display = 'none'; // Скрываем кнопку "Зарегистрироваться" в мотивационной фразе
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Скрипт загружен!');
+
+// Ожидаемый пароль (замените на ваш пароль)
+const EXPECTED_PASSWORD = '4255';
+
+// Элементы для защиты паролем
+const passwordProtection = document.getElementById('password-protection');
+const passwordInput = document.getElementById('password-input');
+const passwordSubmit = document.getElementById('password-submit');
+const passwordError = document.getElementById('password-error');
+const content = document.getElementById('content');
+
+// Показываем защиту паролем при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Страница загружена');
+  passwordProtection.style.display = 'block'; // Показываем поле для ввода пароля
+  content.style.display = 'none'; // Скрываем основное содержимое сайта
+});
+
+// Функция для проверки пароля
+function checkPassword() {
+  console.log('Функция checkPassword вызвана');
+  const password = passwordInput.value.trim();
+  console.log('Введённый пароль:', password);
+
+  if (password === EXPECTED_PASSWORD) {
+    console.log('Пароль верный');
+    passwordProtection.style.display = 'none';
+    content.style.display = 'block';
+  } else {
+    console.log('Пароль неверный');
+    passwordError.style.display = 'block';
+  }
+}
+
+// Обработчик для кнопки "Войти"
+passwordSubmit.addEventListener('click', checkPassword);
+
+// Обработчик для нажатия Enter в поле ввода пароля
+passwordInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    console.log('Нажата клавиша Enter');
+    checkPassword(); // Проверяем пароль
+  }
+});
+});

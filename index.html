@@ -9,6 +9,15 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+  <div id="password-protection">
+    <h2>Введите пароль для доступа</h2>
+    <input type="password" id="password-input" placeholder="Введите пароль">
+    <button id="password-submit">Войти</button>
+    <p id="password-error" style="color: red; display: none;">Неверный пароль!</p>
+  </div>
+
+  <!-- Основное содержимое сайта (скрыто до ввода пароля) -->
+  <div id="content" style="display: none;">
   <header>
     <div class="logo">
       <img src="РВК1535.jpeg" alt="Логотип ЦИК1535">
@@ -28,6 +37,8 @@
       <div id="user-greeting" style="display: none;">
         Привет, <span id="username"></span>!
       </div>
+      <div style="display: none;">
+        <button id="admin-access-btn">Панель администратора</button></div>
     </div>
   </header>
 
@@ -76,31 +87,6 @@
           <img src="cand1.jpeg" alt="Кандидат 1">
           <h3>Партия 1</h3>
           <p>Иван Иванов</p>
-        </div>
-        <div class="candidate-card">
-          <img src="cand2.jpeg" alt="Кандидат 2">
-          <h3>Партия 2</h3>
-          <p>Петр Петров</p>
-        </div>
-        <div class="candidate-card">
-          <img src="cand3.jpeg" alt="Кандидат 3">
-          <h3>Партия 3</h3>
-          <p>Сергей Сергеев</p>
-        </div>
-        <div class="candidate-card">
-          <img src="cand4.jpeg" alt="Кандидат 4">
-          <h3>Партия 4</h3>
-          <p>Алексей Алексеев</p>
-        </div>
-        <div class="candidate-card">
-          <img src="cand5.jpeg" alt="Кандидат 5">
-          <h3>Партия 5</h3>
-          <p>Дмитрий Дмитриев</p>
-        </div>
-        <div class="candidate-card">
-          <img src="cand6.jpeg" alt="Кандидат 6">
-          <h3>Партия 6</h3>
-          <p>Николай Николаев</p>
         </div>
       </div>
     </section>
@@ -157,7 +143,7 @@
       <button id="submit-login">Войти</button>
     </div>
   </div>
-
+  </div>
   <script src="script.js"></script>
 </body>
 
