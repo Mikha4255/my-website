@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЦИК1535</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="РВК1535.jpeg" alt="Логотип ЦИК1535">
+      <h1>ЦИК1535</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#candidates">Кандидаты и партии</a></li>
+        <li><a href="#apply">Подать заявку</a></li>
+        <li><a href="#about">О комиссии</a></li>
+      </ul>
+    </nav>
+    <div class="auth">
+      <button id="register-btn">Зарегистрироваться</button>
+      <button id="login-btn">Войти</button>
+      <button id="show-users-btn">Показать зарегистрированных</button>
+      <div id="user-greeting" style="display: none;">
+        Привет, <span id="username"></span>!
+      </div>
+    </div>
+  </header>
+
+  <div class="slider">
+    <!-- Слайдер -->
+  </div>
+
+  <section class="motivation">
+    <h2>Выборы 2025 года</h2>
+    <p>Ваш голос важен! Зарегистрируйтесь сейчас, чтобы принять участие в выборах 2025 года и повлиять на будущее.</p>
+    <button id="motivation-register-btn">Зарегистрироваться</button>
+  </section>
+  <main>
+    <!-- Главная новость -->
+    <section class="main-news">
+      <a href="#" id="reset-main-news">Вернуть главную новость</a>
+      <img id="main-news-image" src="mainnews.jpeg" alt="Главная новость">
+      <h2 id="main-news-title">Заголовок главной новости</h2>
+      <p id="main-news-description">Краткое описание главной новости. Это может быть несколько предложений.</p>
+    </section>
+
+    <!-- Все новости -->
+    <section class="all-news">
+      <h2>Все новости</h2>
+      <div class="news-list">
+        <div class="news-item" data-image="news1.jpeg" data-title="Новость 1" data-description="Описание новости 1">
+          <h3>Новость 1</h3>
+          <p>Краткое описание новости 1.</p>
+        </div>
+        <div class="news-item" data-image="news2.jpeg" data-title="Новость 2" data-description="Описание новости 2">
+          <h3>Новость 2</h3>
+          <p>Краткое описание новости 2.</p>
+        </div>
+        <div class="news-item" data-image="news3.jpeg" data-title="Новость 3" data-description="Описание новости 3">
+          <h3>Новость 3</h3>
+          <p>Краткое описание новости 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Кандидаты и партии -->
+    <section id="candidates" class="candidates">
+      <h2>Кандидаты и партии</h2>
+      <div class="candidates-list">
+        <div class="candidate-card">
+          <img src="cand1.jpeg" alt="Кандидат 1">
+          <h3>Партия 1</h3>
+          <p>Иван Иванов</p>
+        </div>
+        <div class="candidate-card">
+          <img src="cand2.jpeg" alt="Кандидат 2">
+          <h3>Партия 2</h3>
+          <p>Петр Петров</p>
+        </div>
+        <div class="candidate-card">
+          <img src="cand3.jpeg" alt="Кандидат 3">
+          <h3>Партия 3</h3>
+          <p>Сергей Сергеев</p>
+        </div>
+        <div class="candidate-card">
+          <img src="cand4.jpeg" alt="Кандидат 4">
+          <h3>Партия 4</h3>
+          <p>Алексей Алексеев</p>
+        </div>
+        <div class="candidate-card">
+          <img src="cand5.jpeg" alt="Кандидат 5">
+          <h3>Партия 5</h3>
+          <p>Дмитрий Дмитриев</p>
+        </div>
+        <div class="candidate-card">
+          <img src="cand6.jpeg" alt="Кандидат 6">
+          <h3>Партия 6</h3>
+          <p>Николай Николаев</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Подать заявку -->
+    <section id="apply" class="apply">
+      <h2>Подать заявку</h2>
+      <div class="apply-content">
+        <p>Чтобы подать заявку, выполните следующие шаги:</p>
+        <ol>
+          <li>Скачайте файл заявки по <a href="application_form.pdf" download>ссылке</a>.</li>
+          <li>Заполните заявку и отправьте её на почту <a href="mailto:example@mail.com">example@mail.com</a>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- О комиссии -->
+    <section id="about" class="about">
+      <h2>О комиссии</h2>
+      <div class="about-content">
+        <p>ЦИК1535 — это независимая комиссия, созданная для организации и проведения выборов. Наша цель — обеспечить честность и прозрачность избирательного процесса.</p>
+        <p>Мы работаем для вас!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Email: example@mail.com</p>
+    <a href="https://t.me/RVK1535" target="_blank">Telegram</a>
+  </footer>
+  <!-- Панель администратора -->
+<div id="admin-panel" style="display: none;">
+  <h2>Панель администратора</h2>
+  <input type="password" id="admin-password" placeholder="Введите пароль администратора">
+  <button id="admin-login-btn">Войти как администратор</button>
+  <div id="users-list"></div>
+</div>
+  <!-- Модальные окна -->
+  <div id="register-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Регистрация</h2>
+      <input type="text" id="reg-number" placeholder="Специальный номер (2 цифры)">
+      <input type="text" id="reg-name" placeholder="Ваше имя">
+      <button id="submit-register">Зарегистрироваться</button>
+    </div>
+  </div>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Вход</h2>
+      <input type="text" id="login-number" placeholder="Специальный номер">
+      <button id="submit-login">Войти</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
