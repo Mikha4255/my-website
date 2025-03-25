@@ -1,352 +1,162 @@
-// Элементы кнопок
-const registerBtn = document.getElementById('register-btn');
-const loginBtn = document.getElementById('login-btn');
-
-const motivationRegisterBtn = document.getElementById('motivation-register-btn');
-
-// Элементы для отображения имени пользователя
-const userGreeting = document.getElementById('user-greeting');
-const usernameSpan = document.getElementById('username');
-
-// Элементы модальных окон
-const registerModal = document.getElementById('register-modal');
-const loginModal = document.getElementById('login-modal');
-const closeButtons = document.querySelectorAll('.close');
-
-// Элементы формы регистрации
-const regNumberInput = document.getElementById('reg-number');
-const regNameInput = document.getElementById('reg-name');
-const submitRegisterBtn = document.getElementById('submit-register');
-
-// Элементы формы входа
-const loginNumberInput = document.getElementById('login-number');
-const submitLoginBtn = document.getElementById('submit-login');
-
-// Элементы главной новости
-const mainNewsImage = document.getElementById('main-news-image');
-const mainNewsTitle = document.getElementById('main-news-title');
-const mainNewsDescription = document.getElementById('main-news-description');
-const resetMainNewsLink = document.getElementById('reset-main-news');
-
-// Исходные данные главной новости
-const defaultImage = mainNewsImage.src;
-const defaultTitle = mainNewsTitle.textContent;
-const defaultDescription = mainNewsDescription.textContent;
-
-// Хранилище для пользователей (в localStorage)
-const usersKey = 'registeredUsers';
-let registeredUsers = JSON.parse(localStorage.getItem(usersKey)) || [];
-
-// Ключ для хранения текущего пользователя
-const currentUserKey = 'currentUser';
-
-// Список номеров и имён (номер: имя)
-const allowedNumbersAndNames = {
-  '12': 'Иван',
-  '42': 'Михаил',
-  '56': 'Сергей',
-  '78': 'Алексей',
-  '90': 'Дмитрий'
+const _ = {
+ 
+  sitePass: atob('NDI1NQ=='), 
+  
+  // Разрешенные номера и имена {номер: имя}
+  allowed: {
+    [atob('MTI=')]: 'Иван',    
+    [atob('NDI=')]: 'Михаил',  
+    [atob('NTY=')]: 'Сергей', 
+    [atob('Nzg=')]: 'Алексей', 
+    [atob('OTA=')]: 'Дмитрий'  
+  },
+  
+  // Ключи для localStorage
+  keys: {
+    users: atob('cmVnaXN0ZXJlZFVzZXJz') // registeredUsers
+  },
+  
+  // Данные пользователей
+  users: JSON.parse(localStorage.getItem(atob('cmVnaXN0ZXJlZFVzZXJz'))) || [],
+  
+  // Данные главной новости
+  news: {
+    image: document.getElementById('main-news-image').src,
+    title: document.getElementById('main-news-title').textContent,
+    desc: document.getElementById('main-news-description').textContent
+  }
 };
 
-// Функция для сохранения пользователей в localStorage
-function saveUsers() {
-  localStorage.setItem(usersKey, JSON.stringify(registeredUsers));
-}
-
-// Функция для обновления файла
-function updateUsersFile() {
-  const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-  if (users.length === 0) return;
-
-  // Формируем содержимое файла
-  const usersList = users.map(user => `Номер: ${user.number}, Имя: ${user.name}`).join('\n');
+// Основные функции
+const $ = {
+  // Получить элемент по ID
+  el: id => document.getElementById(id),
   
-  // Создаём файл
-  const blob = new Blob([usersList], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
+  // Показать/скрыть элемент
+  show: id => $.el(id).style.display = 'block',
+  hide: id => $.el(id).style.display = 'none',
+  
+  // Установить текст
+  text: (id, txt) => $.el(id).textContent = txt,
+  
+  // Получить значение
+  val: id => $.el(id).value.trim(),
+  
+  // Установить атрибут
+  attr: (id, name, value) => $.el(id).setAttribute(name, value)
+};
 
-  // Создаём ссылку для скачивания
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'registered_users.txt'; // Имя файла
-  document.body.appendChild(a);
-  a.click(); // Автоматически скачиваем файл
-
-  // Очищаем ссылку
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+// Функция сохранения пользователей
+function saveUsers() {
+  localStorage.setItem(_.keys.users, JSON.stringify(_.users));
 }
 
-// Регистрация
-submitRegisterBtn.addEventListener('click', () => {
-  const number = regNumberInput.value.trim();
-  const name = regNameInput.value.trim();
+// Сброс главной новости
+function resetMainNews() {
+  $.attr('main-news-image', 'src', _.news.image);
+  $.text('main-news-title', _.news.title);
+  $.text('main-news-description', _.news.desc);
+}
 
-  // Проверка номера (2 цифры)
-  if (!/^\d{2}$/.test(number)) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Ошибка',
-      text: 'Номер должен состоять из 2 цифр!'
-    });
-    return;
-  }
-
-  // Проверка, есть ли номер в списке allowedNumbersAndNames
-  if (!allowedNumbersAndNames.hasOwnProperty(number)) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Ошибка',
-      text: 'Номер не найден в списке разрешённых!'
-    });
-    return;
-  }
-
-  // Проверка, совпадает ли имя с закреплённым за номером
-  if (allowedNumbersAndNames[number] !== name) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Ошибка',
-      text: 'Имя не соответствует закреплённому за этим номером!'
-    });
-    return;
-  }
-
-  // Проверяем, не зарегистрирован ли уже такой номер
-  const existingUser = registeredUsers.find(user => user.number === number);
-  if (existingUser) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Ошибка',
-      text: 'Этот номер уже зарегистрирован!'
-    });
-    return;
-  }
-
-  // Сохраняем нового пользователя
-  registeredUsers.push({ number, name });
-  saveUsers();
-
-  // Обновляем файл
-  updateUsersFile();
-
-  Swal.fire({
-    icon: 'success',
-    title: 'Успех!',
-    text: 'Регистрация успешна!'
-  });
-  registerModal.style.display = 'none';
-});
-
-// Вход
-submitLoginBtn.addEventListener('click', () => {
-  const number = loginNumberInput.value.trim();
-
-  // Проверяем, зарегистрирован ли пользователь
-  const user = registeredUsers.find(user => user.number === number);
-  if (user) {
-    // Сохраняем текущего пользователя в localStorage
-    localStorage.setItem(currentUserKey, JSON.stringify(user));
-
-    // Показываем приветствие и скрываем кнопки
-    usernameSpan.textContent = user.name; // Устанавливаем имя пользователя
-    userGreeting.style.display = 'block'; // Показываем приветствие
-    registerBtn.style.display = 'none'; // Скрываем кнопку "Зарегистрироваться"
-    loginBtn.style.display = 'none'; // Скрываем кнопку "Войти"
-    //showUsersBtn.style.display = 'none'; // Скрываем кнопку "Показать зарегистрированных"
-    motivationRegisterBtn.style.display = 'none'; // Скрываем кнопку "Зарегистрироваться" в мотивационной фразе
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Добро пожаловать!',
-      text: `Рады видеть вас, ${user.name}!`
-    });
-    loginModal.style.display = 'none';
+// Проверка пароля сайта
+function checkSitePass() {
+  if ($.val('password-input') === _.sitePass) {
+    $.hide('password-protection');
+    $.show('content');
   } else {
-    Swal.fire({
-      icon: 'error',
-      title: 'Ошибка',
-      text: 'Номер не найден. Зарегистрируйтесь!'
-    });
+    $.show('password-error');
+  }
+}
+
+// Регистрация пользователя
+$.el('submit-register').addEventListener('click', () => {
+  const num = $.val('reg-number');
+  const name = $.val('reg-name');
+
+  if (!/^\d{2}$/.test(num)) {
+    Swal.fire('Ошибка', 'Номер должен быть 2 цифры', 'error');
+    return;
+  }
+
+  if (!_.allowed[num] || _.allowed[num] !== name) {
+    Swal.fire('Ошибка', 'Неверные данные', 'error');
+    return;
+  }
+
+  if (_.users.some(u => u.number === num)) {
+    Swal.fire('Ошибка', 'Номер уже зарегистрирован', 'error');
+    return;
+  }
+
+  _.users.push({number: num, name: name});
+  saveUsers();
+  Swal.fire('Успех', 'Регистрация завершена', 'success');
+  $.hide('register-modal');
+});
+
+// Вход пользователя
+$.el('submit-login').addEventListener('click', () => {
+  const num = $.val('login-number');
+  const user = _.users.find(u => u.number === num);
+
+  if (user) {
+    // Вход только на текущую сессию (не сохраняем в localStorage)
+    $.text('username', user.name);
+    $.show('user-greeting');
+    $.hide('register-btn');
+    $.hide('login-btn');
+    Swal.fire('Добро пожаловать', `Рады видеть вас, ${user.name}!`, 'success');
+    $.hide('login-modal');
+  } else {
+    Swal.fire('Ошибка', 'Номер не найден', 'error');
   }
 });
 
+// Выход пользователя
+$.el('logout-btn')?.addEventListener('click', () => {
+  $.hide('user-greeting');
+  $.show('register-btn');
+  $.show('login-btn');
+});
 
-// Обработчик клика на новость
+// Работа с новостями
 document.querySelectorAll('.news-item').forEach(item => {
   item.addEventListener('click', () => {
-    const image = item.getAttribute('data-image');
-    const title = item.getAttribute('data-title');
-    const description = item.getAttribute('data-description');
-
-    // Обновляем главную новость
-    mainNewsImage.src = image;
-    mainNewsTitle.textContent = title;
-    mainNewsDescription.textContent = description;
+    $.attr('main-news-image', 'src', item.dataset.image);
+    $.text('main-news-title', item.dataset.title);
+    $.text('main-news-description', item.dataset.description);
   });
 });
 
-// Обработчик клика на ссылку "Вернуть главную новость"
-resetMainNewsLink.addEventListener('click', (e) => {
-  e.preventDefault(); // Отменяем переход по ссылке
-
-  // Возвращаем главную новость к исходному состоянию
-  mainNewsImage.src = defaultImage;
-  mainNewsTitle.textContent = defaultTitle;
-  mainNewsDescription.textContent = defaultDescription;
+// Сброс новостей
+$.el('reset-main-news').addEventListener('click', e => {
+  e.preventDefault();
+  resetMainNews();
 });
 
-// Закрытие модальных окон
-closeButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    registerModal.style.display = 'none';
-    loginModal.style.display = 'none';
-  });
-});
-
-// Закрытие модальных окон при клике вне их
-window.addEventListener('click', (e) => {
-  if (e.target === registerModal) {
-    registerModal.style.display = 'none';
-  }
-  if (e.target === loginModal) {
-    loginModal.style.display = 'none';
-  }
-});
-
-// Элементы панели администратора
-const adminPanel = document.getElementById('admin-panel');
-const adminPasswordInput = document.getElementById('admin-password');
-const adminLoginBtn = document.getElementById('admin-login-btn');
-const usersList = document.getElementById('users-list');
-
-// Пароль администратора
-const ADMIN_PASSWORD = '42551922';
-
-// Вход в режим администратора
-adminLoginBtn.addEventListener('click', () => {
-  const password = adminPasswordInput.value.trim();
-
-  if (password === ADMIN_PASSWORD) {
-    adminPanel.style.display = 'block'; // Показываем панель администратора
-    showUsersList(); // Показываем список пользователей
-  } else {
-    Swal.fire({
-      icon: 'error',
-      title: 'Ошибка',
-      text: 'Неверный пароль администратора!'
-    });
-  }
-});
-
-// Показать список зарегистрированных пользователей
-function showUsersList() {
-  usersList.innerHTML = ''; // Очищаем список
-
-  registeredUsers.forEach((user, index) => {
-    const userItem = document.createElement('div');
-    userItem.innerHTML = `
-      <p>Номер: ${user.number}, Имя: ${user.name}</p>
-      <button onclick="deactivateUser(${index})">Деактивировать</button>
-    `;
-    usersList.appendChild(userItem);
-  });
-}
-
-// Деактивация пользователя
-function deactivateUser(index) {
-  registeredUsers.splice(index, 1); // Удаляем пользователя из списка
-  saveUsers(); // Сохраняем изменения в localStorage
-  showUsersList(); // Обновляем список
-  Swal.fire({
-    icon: 'success',
-    title: 'Успех!',
-    text: 'Пользователь деактивирован.'
-  });
-}
-
-// Открытие модального окна регистрации
-registerBtn.addEventListener('click', () => {
-  registerModal.style.display = 'block';
-});
-
-// Открытие модального окна входа
-loginBtn.addEventListener('click', () => {
-  loginModal.style.display = 'block';
-});
-
-// Открытие модального окна регистрации при клике на кнопку в секции motivation
-motivationRegisterBtn.addEventListener('click', () => {
-  registerModal.style.display = 'block';
-});
-
-// Обработчик для кнопки "Панель администратора"
-//adminAccessBtn.addEventListener('click', () => {
-  //adminPanel.style.display = 'block'; // Показываем панель администратора
-//});
-
-// Очистка текущего пользователя при загрузке страницы
-localStorage.removeItem(currentUserKey);
-
-// Проверка состояния входа при загрузке страницы
+// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-  const currentUser = JSON.parse(localStorage.getItem(currentUserKey));
-
-  if (currentUser) {
-    // Показываем приветствие и скрываем кнопки
-    usernameSpan.textContent = currentUser.name;
-    userGreeting.style.display = 'block';
-    registerBtn.style.display = 'none';
-    loginBtn.style.display = 'none';
-    //showUsersBtn.style.display = 'none';
-    motivationRegisterBtn.style.display = 'none'; // Скрываем кнопку "Зарегистрироваться" в мотивационной фразе
-  }
-});
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Скрипт загружен!');
-
-// Ожидаемый пароль (замените на ваш пароль)
-const EXPECTED_PASSWORD = '4255';
-
-// Элементы для защиты паролем
-const passwordProtection = document.getElementById('password-protection');
-const passwordInput = document.getElementById('password-input');
-const passwordSubmit = document.getElementById('password-submit');
-const passwordError = document.getElementById('password-error');
-const content = document.getElementById('content');
-
-// Показываем защиту паролем при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Страница загружена');
-  passwordProtection.style.display = 'block'; // Показываем поле для ввода пароля
-  content.style.display = 'none'; // Скрываем основное содержимое сайта
+  // Всегда показываем кнопки входа/регистрации при загрузке
+  $.show('register-btn');
+  $.show('login-btn');
+  $.hide('user-greeting');
+  
+  // Защита паролем
+  $.show('password-protection');
+  $.hide('content');
 });
 
-// Функция для проверки пароля
-function checkPassword() {
-  console.log('Функция checkPassword вызвана');
-  const password = passwordInput.value.trim();
-  console.log('Введённый пароль:', password);
-
-  if (password === EXPECTED_PASSWORD) {
-    console.log('Пароль верный');
-    passwordProtection.style.display = 'none';
-    content.style.display = 'block';
-  } else {
-    console.log('Пароль неверный');
-    passwordError.style.display = 'block';
-  }
-}
-
-// Обработчик для кнопки "Войти"
-passwordSubmit.addEventListener('click', checkPassword);
-
-// Обработчик для нажатия Enter в поле ввода пароля
-passwordInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    console.log('Нажата клавиша Enter');
-    checkPassword(); // Проверяем пароль
-  }
+// Обработчики
+$.el('password-submit').addEventListener('click', checkSitePass);
+$.el('password-input').addEventListener('keypress', e => {
+  if (e.key === 'Enter') checkSitePass();
 });
+
+// Модальные окна
+$.el('register-btn').addEventListener('click', () => $.show('register-modal'));
+$.el('login-btn').addEventListener('click', () => $.show('login-modal'));
+document.querySelectorAll('.close').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.modal').style.display = 'none';
+  });
 });
