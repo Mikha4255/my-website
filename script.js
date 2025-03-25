@@ -1,9 +1,8 @@
 // Элементы кнопок
 const registerBtn = document.getElementById('register-btn');
 const loginBtn = document.getElementById('login-btn');
-const showUsersBtn = document.getElementById('show-users-btn');
+
 const motivationRegisterBtn = document.getElementById('motivation-register-btn');
-const adminAccessBtn = document.getElementById('admin-access-btn');
 
 // Элементы для отображения имени пользователя
 const userGreeting = document.getElementById('user-greeting');
@@ -155,7 +154,7 @@ submitLoginBtn.addEventListener('click', () => {
     userGreeting.style.display = 'block'; // Показываем приветствие
     registerBtn.style.display = 'none'; // Скрываем кнопку "Зарегистрироваться"
     loginBtn.style.display = 'none'; // Скрываем кнопку "Войти"
-    showUsersBtn.style.display = 'none'; // Скрываем кнопку "Показать зарегистрированных"
+    //showUsersBtn.style.display = 'none'; // Скрываем кнопку "Показать зарегистрированных"
     motivationRegisterBtn.style.display = 'none'; // Скрываем кнопку "Зарегистрироваться" в мотивационной фразе
 
     Swal.fire({
@@ -173,23 +172,6 @@ submitLoginBtn.addEventListener('click', () => {
   }
 });
 
-// Показать зарегистрированных пользователей
-showUsersBtn.addEventListener('click', () => {
-  if (registeredUsers.length === 0) {
-    Swal.fire({
-      icon: 'info',
-      title: 'Информация',
-      text: 'Зарегистрированных пользователей пока нет.'
-    });
-  } else {
-    const usersList = registeredUsers.map(user => `Номер: ${user.number}, Имя: ${user.name}`).join('\n');
-    Swal.fire({
-      icon: 'info',
-      title: 'Зарегистрированные пользователи',
-      text: usersList
-    });
-  }
-});
 
 // Обработчик клика на новость
 document.querySelectorAll('.news-item').forEach(item => {
@@ -300,9 +282,9 @@ motivationRegisterBtn.addEventListener('click', () => {
 });
 
 // Обработчик для кнопки "Панель администратора"
-adminAccessBtn.addEventListener('click', () => {
-  adminPanel.style.display = 'block'; // Показываем панель администратора
-});
+//adminAccessBtn.addEventListener('click', () => {
+  //adminPanel.style.display = 'block'; // Показываем панель администратора
+//});
 
 // Очистка текущего пользователя при загрузке страницы
 localStorage.removeItem(currentUserKey);
@@ -317,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     userGreeting.style.display = 'block';
     registerBtn.style.display = 'none';
     loginBtn.style.display = 'none';
-    showUsersBtn.style.display = 'none';
+    //showUsersBtn.style.display = 'none';
     motivationRegisterBtn.style.display = 'none'; // Скрываем кнопку "Зарегистрироваться" в мотивационной фразе
   }
 });
