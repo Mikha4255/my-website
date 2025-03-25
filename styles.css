@@ -150,13 +150,13 @@ nav a:hover {
 
 .candidates-list {
   display: flex;
-  overflow-x: auto; /* Горизонтальная прокрутка */
+  overflow-x: auto; 
   gap: 20px;
-  padding-bottom: 20px; /* Чтобы не обрезались тени */
+  padding-bottom: 20px;
 }
 
 .candidate-card {
-  flex: 0 0 auto; /* Фиксированная ширина карточки */
+  flex: 0 0 auto; 
   width: 200px;
   text-align: center;
   border: 1px solid #ccc;
@@ -166,9 +166,9 @@ nav a:hover {
 }
 
 .candidate-card img {
-  width: 150px; /* Фиксированная ширина */
-  height: 150px; /* Фиксированная высота */
-  object-fit: cover; /* Чтобы изображение заполняло область */
+  width: 150px; 
+  height: 150px;
+  object-fit: cover; 
   border-radius: 10px;
 }
 
