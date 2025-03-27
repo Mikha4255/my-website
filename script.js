@@ -3,11 +3,9 @@ const _ = {
   sitePass: atob('NDI1NQ=='), 
   
   // Разрешенные номера и имена {номер: имя}
-  allowed: {
-    [atob('MTI=')]: 'Иван',    
+  allowed: {   
     [atob('NDI=')]: 'Михаил',  
     [atob('NTY=')]: 'Сергей', 
-    [atob('Nzg=')]: 'Алексей', 
     [atob('OTA=')]: 'Дмитрий'  
   },
   
