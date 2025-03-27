@@ -1,6 +1,6 @@
 const _ = {
  
-  sitePass: atob('NDI1NQ=='), 
+  sitePass: atob('NDIxOTIy'),
   
   // Разрешенные номера и имена {номер: имя}
   allowed: {   
