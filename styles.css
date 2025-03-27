@@ -385,3 +385,17 @@ footer a:hover {
   color: #666;
   font-size: 14px;
 }
+
+.boss{
+  color: #4285f4;
+  text-decoration: underline;
+}
+
+.boss:hover{
+  background-color: #c4c9cc;
+  transition: 1s;
+}
+
+.boss.active{
+  background-color: #a4aaaf;
+}
