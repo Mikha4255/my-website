@@ -387,17 +387,17 @@ footer a:hover {
 }
 
 .boss{
-  color: #4285f4;
+  color: #333e94;
   text-decoration: underline;
 }
 
 .boss:hover{
-  background-color: #c4c9cc;
+  background-color: #1cc243;
   transition: 1s;
 }
 
 .boss.active{
-  background-color: #a4aaaf;
+  background-color: #1fc32d;
 }
 
 .candp{
