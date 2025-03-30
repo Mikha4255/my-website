@@ -9,14 +9,16 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+  Закомментирована защита паролем
   <div id="password-protection">
     <h2>Введите пароль для доступа</h2>
     <input type="password" id="password-input" placeholder="Введите пароль">
     <button id="password-submit">Войти</button>
     <p id="password-error" style="color: red; display: none;">Неверный пароль!</p>
   </div>
+  
 
-  <!-- Основное содержимое сайта (скрыто до ввода пароля) -->
+  <!-- Основное содержимое сайта -->
   <div id="content" style="display: none;">
   <header>
     <div class="logo">
@@ -135,13 +137,14 @@
     <!-- Кандидаты и партии -->
     <section id="candidates" class="candidates">
       <h2>Кандидаты и партии</h2>
-      <!--<div class="candidates-list">
+      <div class="candidates-list">
         <div class="candidate-card">
           <img src="cand1.jpeg" alt="Кандидат 1">
-          <h3>Партия 1</h3>
-          <p>Иван Иванов</p>
+          <h3>Партия: Ёбанное казино</h3>
+          <p>Кандидат: <span class="candp">Асхаб Тамаев Ракеткович</span> </p>
+          <p>Лозунг: <span class="candp">Принесём ракетку в жизнь класса</span></p>
         </div>
-      </div>-->
+      </div>
     </section>
 
     <!-- Подать заявку -->
@@ -206,5 +209,4 @@
   </div>
   <script src="script.js"></script>
 </body>
-
 </html>

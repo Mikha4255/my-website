@@ -399,3 +399,9 @@ footer a:hover {
 .boss.active{
   background-color: #a4aaaf;
 }
+
+.candp{
+  font-weight: 900;
+  color: #282424;
+  text-decoration: underline;
+}
