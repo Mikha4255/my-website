@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: rgb(244, 154, 29);
 }
 
 /* Шапка */
@@ -12,8 +12,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #fff;
+  background-color: rgb(244, 154, 29);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 20px;
 }
 
 .logo {
@@ -45,42 +47,47 @@ nav a {
 }
 
 nav a:hover {
-  color: #007bff;
+  color: #4f9aea;
+  transition: 0.5s;
 }
 
 .auth button {
   margin-left: 10px;
+  margin-bottom: 5px;
   padding: 8px 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+  background-color: rgb(212, 134, 26);
+  color: #000000;
+  border: 2px solid #000;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .auth button:hover {
-  background-color: #0056b3;
+  background-color: #468cd7;
+  transition: 0.5s;
 }
 
 /* Главная новость */
 .main-news {
   padding: 20px;
   text-align: center;
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
+  border: 3px solid rgb(244, 154, 29);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #reset-main-news {
   display: inline-block;
   margin-bottom: 10px;
-  color: #007bff;
+  color: rgb(244, 154, 29);
   text-decoration: none;
 }
 
 #reset-main-news:hover {
-  text-decoration: underline;
+  background-color: #0056b3;
+  transition: 0.5s;
 }
 
 .main-news img {
@@ -93,18 +100,20 @@ nav a:hover {
 .main-news h2 {
   margin: 10px 0;
   font-size: 24px;
+  color: rgb(244, 154, 29)
 }
 
 .main-news p {
-  color: #555;
+  color: rgb(244, 154, 29);
 }
 
 /* Все новости */
 .all-news {
   padding: 20px;
-  background-color: #fff;
+  background-color: rgb(244, 154, 29);
   margin: 20px;
   border-radius: 10px;
+  border: 3px solid rgb(0, 0, 0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -112,35 +121,49 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: rgb(244, 154, 29);
 }
 
 .news-item {
-  border: 1px solid #ccc;
+  border: 3px solid rgb(0, 0, 0);
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  background-color: rgb(244, 154, 29);
+  color: #000000; 
 }
 
 .news-item:hover {
-  background-color: #f0f0f0;
+  background-color: #e0a860;
 }
 
 .news-item h3 {
   margin: 0;
   font-size: 18px;
+  color: inherit; 
 }
 
 .news-item p {
   margin: 5px 0;
-  color: #555;
+  color: inherit; 
+}
+
+.news-item ul, 
+.news-item ol {
+  color: inherit; 
+}
+
+.news-item li {
+  color: inherit; 
 }
 
 /* Кандидаты и партии */
 .candidates {
   padding: 20px;
-  background-color: #fff;
+  background-color: rgb(244, 154, 29);
   margin: 20px;
-  border-radius: 10px;
+  border: 3px solid #000;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -159,7 +182,7 @@ nav a:hover {
   flex: 0 0 auto; 
   width: 200px;
   text-align: center;
-  border: 1px solid #ccc;
+  border: 3px solid #000000;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -179,16 +202,25 @@ nav a:hover {
 
 .candidate-card p {
   margin: 0;
-  color: #555;
+  color: #000000;
 }
 
 /* Подать заявку */
 .apply {
   padding: 20px;
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
   margin: 20px;
-  border-radius: 10px;
+  border: 3px solid rgb(244, 154, 29);
+  color: rgb(244, 154, 29);
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.apply p {
+  font-size: 20px;
+}
+.apply ol li{
+  font-size: 20px;
 }
 
 .apply h2 {
@@ -200,20 +232,23 @@ nav a:hover {
 }
 
 .apply-content a {
-  color: #007bff;
+  color: rgb(130, 151, 54);
   text-decoration: none;
 }
 
 .apply-content a:hover {
-  text-decoration: underline;
+  background-color: #36466a;
+  transition: 0.5s;
 }
 
 /* О комиссии */
 .about {
   padding: 20px;
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
   margin: 20px;
-  border-radius: 10px;
+  color: rgb(244, 154, 29);
+  border-radius: 20px;
+  border: rgb(244, 154, 29);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -229,23 +264,24 @@ nav a:hover {
 footer {
   padding: 20px;
   text-align: center;
-  background-color: #fff;
+  background-color: #000000;
   margin-top: 20px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #000000;
 }
 
 footer p {
   margin: 0;
-  color: #555;
+  color: rgb(244, 154, 29);
 }
 
 footer a {
-  color: #007bff;
+  color: rgb(244, 154, 29);
   text-decoration: none;
 }
 
 footer a:hover {
-  text-decoration: underline;
+  background-color: #36466a;
+  transition: 0.5s;
 }
 
 /* Модальные окна */
@@ -277,8 +313,9 @@ footer a:hover {
 /* Ободряющая надпись */
 .motivation {
   padding: 20px;
-  background-color: #007bff;
-  color: #fff;
+  border: 3px solid rgb(244, 154, 29) ;
+  background-color: #000000;
+  color: rgb(244, 154, 29);
   text-align: center;
   margin: 20px;
   border-radius: 10px;
@@ -354,22 +391,21 @@ footer a:hover {
 .impr{
   color: red;
   font-size: 35px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .suggest-news-container {
   text-align: center;
   margin: 30px 0;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: rgb(244, 154, 29);
   border-radius: 10px;
-  border: 1px dashed #ccc;
+  border: 2px dashed #000000;
 }
 
 .suggest-news-btn {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #4285f4;
+  background-color: #000000;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -378,31 +414,66 @@ footer a:hover {
 }
 
 .suggest-news-btn:hover {
-  background-color: #3367d6;
+  background-color: #36466a;
 }
 
 .suggest-news-note {
   margin-top: 10px;
-  color: #666;
-  font-size: 14px;
+  color: #000000;
+  font-size: 16px;
 }
 
 .boss{
-  color: #333e94;
+  color: #000000;
   text-decoration: underline;
 }
 
 .boss:hover{
-  background-color: #1cc243;
+  background-color: #c7cccf;
   transition: 1s;
 }
 
 .boss.active{
-  background-color: #1fc32d;
+  background-color: #a4aaaf;
 }
 
 .candp{
   font-weight: 900;
   color: #282424;
   text-decoration: underline;
+}
+
+.vote{
+  padding: 20px;
+  background-color: rgb(244, 154, 29);
+  margin: 20px;
+  border: 3px solid #000;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vote p {
+  font-size: 20px;
+}
+.vote ul li{
+  font-size: 20px;
+}
+
+.voteh2{
+  margin-bottom: 20px;
+}
+
+.link-vote{
+  color: #007bff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.link-vote:hover{
+  background-color: rgb(219, 188, 188);
+  text-decoration: underline;
+}
+
+hr {
+  border-color: #000;
 }
