@@ -1,7 +1,6 @@
 const _ = {
  
-  // Закомментирован пароль сайта
-  // sitePass: atob('NDIxOTIy'),
+  sitePass: atob('NDIxOTIy'),
   
   // Разрешенные номера и имена {номер: имя}
   allowed: {   
@@ -57,8 +56,7 @@ function resetMainNews() {
   $.text('main-news-description', _.news.desc);
 }
 
-// Закомментирована проверка пароля сайта
-/*
+// Проверка пароля сайта
 function checkSitePass() {
   if ($.val('password-input') === _.sitePass) {
     $.hide('password-protection');
@@ -67,7 +65,6 @@ function checkSitePass() {
     $.show('password-error');
   }
 }
-*/
 
 // Регистрация пользователя
 $.el('submit-register').addEventListener('click', () => {
@@ -142,18 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
   $.show('login-btn');
   $.hide('user-greeting');
   
-  // Закомментирована защита паролем
-  // $.show('password-protection');
-  // $.hide('content');
+  // Защита паролем
+  $.show('password-protection');
+  $.hide('content');
 });
 
-// Закомментированы обработчики пароля
-/*
+// Обработчики
 $.el('password-submit').addEventListener('click', checkSitePass);
 $.el('password-input').addEventListener('keypress', e => {
   if (e.key === 'Enter') checkSitePass();
 });
-*/
 
 // Модальные окна
 $.el('register-btn').addEventListener('click', () => $.show('register-modal'));
@@ -163,4 +158,3 @@ document.querySelectorAll('.close').forEach(btn => {
     btn.closest('.modal').style.display = 'none';
   });
 });
-
