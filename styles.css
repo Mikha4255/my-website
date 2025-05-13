@@ -76,6 +76,7 @@ nav a:hover {
   border-radius: 20px;
   border: 3px solid rgb(0, 0, 0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 #reset-main-news {
@@ -83,6 +84,9 @@ nav a:hover {
   margin-bottom: 10px;
   color: rgb(67, 34, 5);
   text-decoration: none;
+  position: absolute;
+  left: 250px;
+  top: 200px;
 }
 
 #reset-main-news:hover {
@@ -176,40 +180,43 @@ nav a:hover {
   display: flex;
   overflow-x: auto; 
   gap: 50px;
-  padding: 20px;
+  padding: 30px;
 }
 
 .candidate-card {
   flex: 0 0 auto; 
-  width: 200px;
+  width: 95%;
+  height: 700px;
   text-align: center;
   border: 3px solid #000000;
   border-radius: 10px;
-  margin: 15px;
-  padding: 10px;
+  margin: 20px;
+  padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .candidate-card:hover{
-  transform: scale(1.2);
+  transform: scale(1.05);
   transition: 0.5s;
 }
 
 .candidate-card img {
-  width: 150px; 
-  height: 150px;
+  width: 900px; 
+  height: 550px;
   object-fit: cover; 
   border-radius: 10px;
 }
 
 .candidate-card h3 {
   margin: 10px 0 5px;
-  font-size: 18px;
+  font-size: 50px;
+  color: #ff0000;
 }
 
 .candidate-card p {
   margin: 0;
-  color: #000000;
+  font-size: 25px;
+  color: #ff0000;
 }
 
 /* Подать заявку */
@@ -218,16 +225,21 @@ nav a:hover {
   background-color: rgb(242, 219, 191);
   margin: 20px;
   border: 3px solid rgb(0, 0, 0);
-  color: rgb(67, 34, 5);
+  color: rgb(232, 25, 25);
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.apply h2{
+  font-size: 40px;
+}
+
 .apply p {
-  font-size: 20px;
+  font-size: 30px;
 }
 .apply ol li{
-  font-size: 20px;
+  font-size: 25px;
+  color: rgb(239, 44, 44);
 }
 
 .apply h2 {
@@ -325,6 +337,7 @@ footer a:hover {
 }
 /* Ободряющая надпись */
 .motivation {
+  display: block;
   padding: 20px;
   border: 3px solid rgb(0, 0, 0) ;
   background-color: rgb(242, 219, 191);
@@ -333,6 +346,11 @@ footer a:hover {
   margin: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease
+}
+
+.motivation:hover{
+  transform: rotate(360deg);
 }
 
 .motivation h2 {
@@ -466,7 +484,7 @@ footer a:hover {
 
 .candp{
   font-weight: 900;
-  color: #282424;
+  color: rgb(255, 0, 0);
   text-decoration: underline;
 }
 
@@ -505,4 +523,4 @@ footer a:hover {
 
 hr {
   border-color: #000;
-}
+} 
