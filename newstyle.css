@@ -1,8 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+ 
 body{
-    background-image: url("nowork.webp");
+    background-color: #1d1102;
+    overflow-x: hidden; 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 p{
-    color: rgb(111, 142, 173);
-    font-size: 300px;
+    color: #FFCB9A;
+    font-family: "DM Serif Text", serif;
+} 
+
+div{
+ background-color: #1d1102;
+}
+
+.logo img{
+    height: 100px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+     align-items: center;
+    border: 3px solid #1d1102;
+    border-radius: 15px;
+    padding: 10px 30px;
+    position: relative;
+}
+
+nav{
+    position: absolute;
+    right: 150px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li{
+    display: block;
+    font-family: "Bellota", system-ui;
+    font-size: 25px;
+    color: #FFCB9A;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #FFCB9A;
+}
+
+nav ul li a:hover{
+    color: #ff6f00;
+    transition: 0.5s;
+}
+
+hr { 
+    border: none; border-top: 2px solid rgb(231, 109, 16)
+}
+
+.intr{
+    background-color: #1d1102;
+    color: #ff6f00;
+    font-family: "Comforter", cursive;
+    text-align: center;
+    font-size: 170px;
+    display: flex;
+    justify-content: center;
+    height: 850px;
+    overflow: hidden;
+}
+
+.intr h1{
+    position: absolute;
+    left: 80px;
+    top: -30px;
+}
+
+.p1{
+    position: absolute;
+    font-size: 30px;
+    font-family: "DM Serif Text", serif;
+    color: #FFCB9A;
+    z-index: 2;
+    left: 40px;
+    top: 90px;
+}
+.p2{
+    position: absolute;
+    z-index: 2;
+    font-size: 30px;
+    font-family: "DM Serif Text", serif;
+    color: #FFCB9A;
+    left: 250px;
+    top: 120px;
+}
+
+.p3{
+    position: absolute;
+    z-index: 2;
+    font-size: 20px;
+    font-family: "DM Serif Text", serif;
+    left: 50px;
+    top: 450px;
+}
+
+.p4{
+    position: absolute;
+    z-index: 2;
+    font-size: 20px;
+    font-family: "DM Serif Text", serif;
+    left: 30px;
+    top: 520px;
+}
+
+.p5{
+    position: absolute;
+    z-index: 2;
+    font-size: 20px;
+    font-family: "DM Serif Text", serif;
+    left: 30px;
+    top: 550px;
+}
+
+.p6{
+    position: absolute;
+    z-index: 2;
+    font-size: 20px;
+    font-family: "DM Serif Text", serif;
+    left: 470px;
+    top: 625px;
+    background-color: #1d1102;
+    color: #ff6f00;
+    border: 3px solid #ff6f00;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.data{
+    color: #ff6f00;
+    font-size: 60px;
+    font-family: "Comforter", cursive;
+}
+
+.img1{
+    position: absolute;
+    height: 350px;
+    right: 40px;
+    top: 130px;
+}
+
+.sup1{
+    position: absolute;
+    height: 90px;
+    left: 300px;
+    top: 700px;
+    border-radius: 50px;
+}
+.sup2{
+    position: absolute;
+    height: 90px;
+    left: 450px;
+    top: 700px;
+    border-radius: 50px;
+}
+.sup3{
+    position: absolute;
+    height: 90px;
+    left: 600px;
+    top: 700px;
+    border-radius: 50px;
+}
+.sup4{
+    position: absolute;
+    height: 90px;
+    left: 750px;
+    top: 700px;
+    border-radius: 50px;
+}
+
+.bord{
+    position: relative;
+    top: 50px;
+    width: 70%;
+    height: 650px;
+    border: 3px solid rgb(224, 105, 1);
+    border-radius: 50px;
+}
+
+.sabl{
+    font-size: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "DM Serif Text", serif;
+    text-align: center;
+}
+
+.ma{
+    color: #ff6f00;
+}
+
+.op{
+    font-size: 30px;
+    color: #d1e8e2;
+}
+
+/* Базовые стили для всех лучей */
+.ray {
+    position: absolute;
+    width: 400px;
+    height: 100vh;
+    filter: blur(100px);
+    animation: swing 10s infinite ease-in-out;
+    opacity: 0.6;
+  }
+  
+  /* Лучи, направленные ВВЕРХ */
+  .up-left, .up-right {
+    top: 1000px;
+    clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+    background: linear-gradient(
+      to top,
+      rgba(255, 95, 31, 0.9),
+      rgba(255, 95, 31, 0.1)
+    );
+  }
+  
+  .up-left {
+    left: -200px;
+    transform: rotate(15deg);
+    transform-origin: bottom left;
+  }
+  
+  .up-right {
+    right: -250px;
+    transform: rotate(-15deg);
+    transform-origin: bottom right;
+  }
+  
+  /* Лучи, направленные ВНИЗ */
+  .down-left, .down-right {
+    top: 1700px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 95, 31, 0.9),
+      rgba(255, 95, 31, 0.1)
+    );
+  }
+  
+  .down-left {
+    left: -200px;
+    transform: rotate(-15deg);
+    transform-origin: top left;
+  }
+  
+  .down-right {
+    right: -200px;
+    transform: rotate(15deg);
+    transform-origin: top right;
+  }
+  
+  /* Анимация */
+  @keyframes swing {
+    0%, 100% {
+      transform: rotate(30deg);
+      opacity: 0.6;
+    }
+    25% {
+      transform: rotate(50deg);
+    }
+    50% {
+      transform: rotate(15deg);
+      opacity: 1;
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+  }
+  
+  /* Зеркальная анимация для правых лучей */
+  .up-right, .down-right {
+    animation-name: swing-mirror;
+  }
+  
+  @keyframes swing-mirror {
+    0%, 100% {
+      transform: rotate(-30deg);
+      opacity: 0.6;
+    }
+    25% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(-15deg);
+      opacity: 1;
+    }
+    75% {
+      transform: rotate(-50deg);
+    }
+  }
+  
+  /* Особые трансформации для нижних лучей */
+  .down-left {
+    animation-name: swing-down;
+  }
+  
+  @keyframes swing-down {
+    0%, 100% {
+      transform: rotate(-30deg);
+    }
+    25% {
+      transform: rotate(-40deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+  }
+  
+  .down-right {
+    animation-name: swing-down-mirror;
+  }
+  
+  @keyframes swing-down-mirror {
+    0%, 100% {
+      transform: rotate(30deg);
+    }
+    25% {
+      transform: rotate(10deg);
+    }
+    50% {
+      transform: rotate(20deg);
+    }
+    75% {
+      transform: rotate(40deg);
+    }
+  }
+
+.nom{
+    color: #ff6f00;
+    font-size: 40px;
+    padding: 10px;
+    text-align: center;
+}
+
+.nom h2{
+    font-size: 70px;
+}
+
+.nom p{
+  font-size: 30px;
+}
+
+.mainnom{
+  display: flex;
+  gap: 40px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.allnom{
+    display: flex;
+    gap: 40px;
+    flex-wrap: nowrap;
+    padding: 20px 50px;
+    overflow-x: auto; 
+    overflow-y: hidden; 
+}
+
+.nomcard{
+    width: 300px;
+    height: 450px;
+    flex-shrink: 0;
+    text-align: center;
+    border: 3px solid rgba(255, 95, 31, 0.5);
+    border-radius: 20px;
+    color: #ff6f00;
+}
+
+.nomcard img{
+    width: 200px;
+    height: 200px;
+    border: 3px solid #ff6f00;
+    border-radius: 20px;
+}
+
+.nomcard h3{
+    font-size: 30px;
+}
+
+.sma{
+    font-size: 22px;
+}
+
+.nomcard hr { 
+    border: none; border-top: 2px solid rgba(255, 95, 31, 0.4)
+}
+
+.nomcard a{
+    text-decoration: none;
+    color: #FFCB9A;
+}
+
+.nomcard a:hover{
+    color: rgba(255, 95, 31, 0.8);
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.nomcard p{
+    font-size: 20px;
+    color: #ff6f00;
+}
+
+.queandans{
+  color: #FFCB9A;
+  display: flex;
+  align-items: center; 
+  padding: 20px;
+}
+.que{
+  font-size: 50px;
+  color: #ff6f00;
+  font-family: "DM Serif Text", serif;
+  text-align: center;
+}
+
+.menu {
+  list-style-type: none;
+    padding: 0; 
+    width: 80%; 
+    max-width: 800px; 
+}
+
+.menu li{
+  width: 600px;
+}
+
+.dropdown {
+  position: relative;
+  list-style: none; 
+}
+
+.dropdown label{
+  width: 1550px;
+  font-family: "DM Serif Text", serif;
+  font-size: 30px;
+  text-align: center;
+  display: block;
+  border: 3px solid rgba(255, 95, 31, 0.7);
+  color: #d1e8e2;
+  border-radius: 20px;
+  padding: 12px 12px;
+  box-sizing: border-box;
+  height: 80px;
+  margin-top: 20px;
+  cursor: pointer; 
+  transition: all 0.3s ease; /* Плавные переходы для всех свойств */
+}
+
+.dropdown label:hover{
+  background-color: #311d04;
+  color: #e0e6e4;
+  transition: 0.42s;
+}
+
+.dropdown-menu {
+  display: none; 
+    padding: 15px;
+    margin-top: 10px; 
+    border-radius: 15px;
+    background-color: #1d1102;
+    font-size: 20px;
+    line-height: 1.5; /* Межстрочный интервал */
+    animation: fadeIn 0.3s ease; /* Применяем анимацию */
+}
+
+.dropdown-menu li {
+  display: block;
+  text-align: center;
+  width: 1300px;
+  color: #d1e8e2;
+  font-size: 30px;
+  border: 3px solid rgba(255, 95, 31, 0.7);
+  border-radius: 30px;
+  padding: 8px 12px;
+  margin: 10px 100px 0px;
+}
+
+.dropdown-menu li:hover {
+  color: #ff6f00; 
+  transition: 0.42s;
+}
+
+/* Скрываем чекбокс */
+.dropdown-toggle {
+  display: none;
+}
+
+/* Показываем меню при активном чекбоксе */
+.dropdown-toggle:checked ~ .dropdown-menu {
+  display: block;
+}
+
+
+
+@keyframes fadeIn {
+  from { 
+      opacity: 0; /* Начальная прозрачность (невидим) */
+      transform: translateY(-10px); /* Начальное положение (на 10px выше) */
+  }
+  to { 
+      opacity: 1; /* Конечная прозрачность (полностью видим) */
+      transform: translateY(0); /* Конечное положение (на своём месте) */
+  }
+}
+
+footer{
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  border-top: 3px solid #ff6f00;
+  font-size: 25px;
+  color: #d1e8e2;
+}
+footer p{
+  color: #ff6f00;
+}
+
+footer a{
+  text-decoration: none;
+  color: #FFCB9A;
+}
+
+footer a:hover{
+  color: #ff6f00;
+  transition: 0.42s;
+}
+
+footer ul{
+  list-style: none;
+}
+
+footer nav{
+  display: flex;
+  position: absolute;
+  left: 700px;
+  bottom: -150px ;
+}
+footer nav ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  color: #d1e8e2;
+}
+
+footer nav a{
+  font-size: 25px;
+}
+
+.imp{
+  position: absolute;
+  font-family: "Comforter", cursive;
+  font-size: 40px;
+  bottom: -250px;
+  left: 760px;
 }
