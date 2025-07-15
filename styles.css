@@ -1,9 +1,15 @@
 /* Общие стили */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(242, 219, 191);
+  background-color: rgb(170, 244, 197);
+  overflow-x: hidden; 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 /* Шапка */
@@ -12,7 +18,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgb(242, 219, 191);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 3px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -25,7 +30,9 @@ header {
 }
   
 .logo img {
-  height: 50px;
+  height: 70px;
+  width: 70px;
+  border-radius: 80px;
 }
 
 .logo h1 {
@@ -55,26 +62,31 @@ nav a:hover {
 .main-news {
   padding: 20px;
   text-align: center;
-  background-color: rgb(242, 219, 191);
   margin: 20px;
   border-radius: 20px;
   border: 3px solid rgb(0, 0, 0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
+  color: rgb(255, 0, 0);
 }
 
 #reset-main-news {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   margin-bottom: 10px;
-  color: rgb(67, 34, 5);
+  color: rgb(161, 91, 6);
   text-decoration: none;
-  position: absolute;
-  left: 170px;
-  top: 200px;
+  border: 3px solid #44210a;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 #reset-main-news:hover {
-  color: #0056b3;
+  color: #88ff9c;
+  background-color: #e19562;
+  border: 3px solid #ff0000;
+  transform: scale(1.05);
+  transform: translate(10px, -10px);
   transition: 0.5s;
 }
 
@@ -82,34 +94,34 @@ nav a:hover {
   width: 100%;
   max-width: 600px;
   height: auto;
-  border-radius: 10px;
+  border-radius: 60px;
+}
+
+.main-news img:hover{
+  transform: scale(1.05);
+  transition: 0.55s;
 }
 
 .main-news h2 {
   margin: 10px 0;
   font-size: 24px;
-  color: rgb(67, 34, 5);
 }
 
-.main-news p {
-  color: rgb(67, 34, 5);
-}
 
 /* Все новости */
 .all-news {
   padding: 20px;
-  background-color: rgb(242, 219, 191);
   margin: 20px;
   border-radius: 10px;
   border: 3px solid rgb(0, 0, 0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: rgb(255, 0, 0);
 }
 
 .news-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: rgb(242, 219, 191);
 }
 
 .news-item {
@@ -117,8 +129,6 @@ nav a:hover {
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: rgb(242, 219, 191);
-  color: #000000; 
 }
 
 .news-item:hover {
@@ -149,14 +159,14 @@ nav a:hover {
 /* Кандидаты и партии */
 .candidates {
   padding: 20px;
-  background-color: rgb(242, 219, 191);
+  background-color: #1d1102;
   margin: 20px;
   border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .candidates h2 {
   margin-bottom: 20px;
+  color: #ff6f00;
 }
 
 .candidates-list {
@@ -169,15 +179,14 @@ nav a:hover {
 .candidate-card {
   flex: 0 0 auto; 
   width: 250px;
-  height: 330px;
+  height: 400px;
   text-align: center;
-  border: 3px solid #000000;
+  border: 3px solid rgba(255, 95, 31, 0.6);
   border-radius: 40px;
   margin: 20px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #0b5d90;
   box-sizing: border-box;
+  color: #ff6f00;
 }
 
 .candidate-card:hover{
@@ -188,15 +197,14 @@ nav a:hover {
 .candidate-card img {
   width: 200px; 
   height: 200px;
-  background-color: #44210a;
-  object-fit: cover; 
+  object-fit: cover;  
   border-radius: 30px;
+  border: 3px solid rgba(255, 95, 31, 0.88);
 }
 
 .candidate-card h3 {
   margin: 20px 0 5px;
   font-size: 25px;
-  color: #e19562;
 }
 
 
@@ -204,7 +212,6 @@ nav a:hover {
 footer {
   padding: 20px;
   text-align: center;
-  background-color: rgb(242, 219, 191);
   margin-top: 20px;
   border-top: 3px solid #000000;
 }
@@ -272,7 +279,6 @@ footer a:hover {
   text-align: center;
   margin: 30px 0;
   padding: 20px;
-  background-color: rgb(242, 219, 191);
   border-radius: 10px;
   border: 2px dashed #000000;
 }
@@ -280,7 +286,6 @@ footer a:hover {
 .suggest-news-btn {
   display: inline-block;
   padding: 12px 24px;
-  background-color: rgb(242, 219, 191);
   color: rgb(67, 34, 5);
   text-decoration: none;
   border-radius: 5px;
@@ -322,7 +327,6 @@ footer a:hover {
 
 .vote{
   padding: 20px;
-  background-color: rgb(242, 219, 191);
   margin: 20px;
   border: 3px solid #000;
   border-radius: 20px;
@@ -341,18 +345,16 @@ footer a:hover {
 }
 
 .link-vote{
-  color: #007bff;
   text-decoration: none;
   transition: 0.5s;
   border-radius: 10px;
 }
 
 .link-vote:hover{
-  background-color: rgb(203, 33, 33);
-  color: rgb(98, 199, 98);
+  color: rgb(255, 0, 0);
   text-decoration: underline;
 }
 
 hr {
   border-color: #000;
-}
+} 
