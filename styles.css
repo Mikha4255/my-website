@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
 }
-
+ 
 html{
     scroll-behavior: smooth;
 }
@@ -105,6 +105,41 @@ nav a:hover {
   max-width: 600px;
   height: auto;
   border-radius: 60px;
+}
+
+.mob{
+  width: 420px;
+  height: 420px;
+}
+
+.moba{
+  color: #007bff;
+  text-decoration:  none;
+}
+
+.moba:hover{
+  transition: 0.42s;
+  color: #ff0000;
+}
+
+/* Центрирование медиа-контента */
+#main-news-image, #news-image-fallback {
+  display: block;
+  margin: 0 auto;
+  max-width: 420px;
+  height: auto;
+}
+
+/* Дополнительные стили для центрирования */
+.main-news {
+  text-align: center;
+}
+
+.centered-media {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 }
 
 .main-news img:hover{
@@ -368,3 +403,25 @@ footer a:hover {
 hr {
   border-color: #000;
 } 
+
+@media(max-width: 550px){
+  .header{
+    padding: 5px;
+  }
+
+  .logo {
+  gap: 10px;
+}
+  
+.logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 80px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 10px;
+  color: #333;
+}
+}
