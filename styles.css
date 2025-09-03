@@ -1,7 +1,7 @@
 /* Общие стили */
 body {
   font-family: Arial, sans-serif;
-  background-color: rgb(170, 244, 197);
+  background-color: rgb(36, 32, 29);
   overflow-x: hidden; 
     width: 100%;
     margin: 0;
@@ -19,7 +19,7 @@ header {
   align-items: center;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 3px solid rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(219, 164, 96);
   border-radius: 20px;
 }
 
@@ -30,20 +30,27 @@ header {
 }
   
 .logo img {
+  display: block;
   height: 70px;
   width: 70px;
-  border-radius: 80px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 42px rgba(144, 91, 91, 0.757);
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  transition: 0.42s;
 }
 
 .logo h1 {
   margin: 0;
   font-size: 24px;
-  color: #333;
+  color: rgb(6, 159, 16);
 }
 
 .logo a{
   text-decoration: none;
-  color: #8a8a8a;
+  color: #fff236;
 }
 
 .logo a:hover{
@@ -59,7 +66,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #000;
+  color: rgb(87, 240, 98);
   font-weight: bold;
 }
 
@@ -74,17 +81,17 @@ nav a:hover {
   text-align: center;
   margin: 20px;
   border-radius: 20px;
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid rgb(219, 164, 96);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
-  color: rgb(255, 0, 0);
+  color: rgb(255, 0, 0); 
 }
 
 #reset-main-news {
   display: block;
   width: fit-content;
   margin-bottom: 10px;
-  color: rgb(161, 91, 6);
+  color: rgb(219, 164, 96);
   text-decoration: none;
   border: 3px solid #44210a;
   border-radius: 20px;
@@ -128,6 +135,8 @@ nav a:hover {
   margin: 0 auto;
   max-width: 420px;
   height: auto;
+  box-shadow: 25px 3px 60px rgba(218, 4, 4, 0.757),
+              -25px 3px 60px rgba(218, 4, 4, 0.757);
 }
 
 /* Дополнительные стили для центрирования */
@@ -158,9 +167,8 @@ nav a:hover {
   padding: 20px;
   margin: 20px;
   border-radius: 10px;
-  border: 3px solid rgb(0, 0, 0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: rgb(255, 0, 0);
+  border: 3px solid rgb(243, 237, 172);
+  color: rgb(14, 166, 201);
 }
 
 .news-list {
@@ -170,14 +178,22 @@ nav a:hover {
 }
 
 .news-item {
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid rgb(243, 237, 172);
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  background: linear-gradient(
+      45deg,
+      rgb(18, 16, 16) ,
+      #504535 50%,
+      rgb(18, 16, 16) 100%
+    );
 }
 
 .news-item:hover {
+  background: none;
   background-color: #cfac7f;
+  color: rgb(255, 0, 0);
   transition: 0.42s;
 }
 
@@ -205,6 +221,7 @@ nav a:hover {
 .candidates {
   padding: 20px;
   background-color: #1d1102;
+  border: 3px solid rgb(219, 164, 96);
   margin: 20px;
   border-radius: 20px;
 }
@@ -227,6 +244,14 @@ nav a:hover {
   height: 400px;
   text-align: center;
   border: 3px solid rgba(255, 95, 31, 0.6);
+
+  background: linear-gradient(
+      45deg,
+      #1d1102 ,
+      #432905 50%,
+      #1d1102 100%
+    );
+  
   border-radius: 40px;
   margin: 20px;
   padding: 20px;
@@ -258,12 +283,12 @@ footer {
   padding: 20px;
   text-align: center;
   margin-top: 20px;
-  border-top: 3px solid #000000;
+  border-top: 3px solid rgb(243, 237, 172);
 }
 
 footer p, li{
   margin: 0;
-  color: rgb(67, 34, 5);
+  color: rgb(180, 6, 6);
   font-size: 20px;
 }
 
@@ -272,13 +297,13 @@ footer ul{
 }
 
 footer a {
-  color: rgb(67, 34, 5);
+  color: rgb(6, 159, 16);
   text-decoration: none;
   font-size: 20px;
 }
 
 footer a:hover {
-  color: #556ecb;
+  color: #2f52d0;
   transition: 0.5s;
 }
 
@@ -325,13 +350,14 @@ footer a:hover {
   margin: 30px 0;
   padding: 20px;
   border-radius: 10px;
-  border: 2px dashed #000000;
+  border: 2px dashed rgb(243, 237, 172);
+  background-color: rgb(114, 35, 35);
 }
 
 .suggest-news-btn {
   display: inline-block;
   padding: 12px 24px;
-  color: rgb(67, 34, 5);
+  color: rgb(6, 159, 16);
   text-decoration: none;
   border-radius: 5px;
   border: 3px solid #9c7f5c;
@@ -340,13 +366,14 @@ footer a:hover {
 }
 
 .suggest-news-btn:hover {
-  background-color: #cdaf79;
+  background-color: #beeda8;
+  color: rgb(4, 79, 76);
   transition: 0.42s;
 }
 
 .suggest-news-note {
   margin-top: 10px;
-  color: rgb(67, 34, 5);
+  color: rgb(14, 166, 201);
   font-size: 16px;
 }
 
@@ -373,9 +400,10 @@ footer a:hover {
 .vote{
   padding: 20px;
   margin: 20px;
-  border: 3px solid #000;
+  border: 3px solid rgb(243, 237, 172);
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: rgb(14, 166, 201);
 }
 
 .vote p {
@@ -383,6 +411,7 @@ footer a:hover {
 }
 .vote ul li{
   font-size: 20px;
+  color: rgb(180, 6, 6);
 }
 
 .voteh2{
@@ -393,10 +422,11 @@ footer a:hover {
   text-decoration: none;
   transition: 0.5s;
   border-radius: 10px;
+  color: #fff236;
 }
 
 .link-vote:hover{
-  color: rgb(255, 0, 0);
+  color: rgb(173, 165, 68);
   text-decoration: underline;
 }
 
